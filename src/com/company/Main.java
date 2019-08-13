@@ -7,10 +7,20 @@ public class Main {
         CountDown countDown = new CountDown();
 
         CountDownThread t1 = new CountDownThread(countDown);
+        t1.setName("Thread 1");
+
+        CountDownThread t2 = new CountDownThread(countDown);
+        t2.setName("Thread 2");
+
+        t1.start();
+        t2.start();
 
     }
 }
     class CountDown {
+
+    private int i;
+
         public void doCountdown() {
             String color;
             switch (Thread.currentThread().getName()) {
@@ -24,7 +34,7 @@ public class Main {
                     color = ThreadColor.ANSI_GREEN;
 
             }
-            for (int i = 10; i > 0; i--) {
+            for (i = 10; i > 0; i--) {
                 System.out.println(color + Thread.currentThread().getName() + ": i " + i);
 
             }
