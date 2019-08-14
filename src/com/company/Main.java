@@ -21,7 +21,7 @@ public class Main {
 
     private int i;
 
-        public void doCountdown() {
+        public synchronized void doCountdown() {
             String color;
             switch (Thread.currentThread().getName()) {
                 case "Thread 1":
